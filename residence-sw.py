@@ -63,6 +63,10 @@ tn.write(b"switchport access vlan 20" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
 
+tn.write(b"end" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
 tn.write(b"sh run" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
