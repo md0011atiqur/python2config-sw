@@ -31,23 +31,39 @@ if b"Username" in response:
 else:
 	print("not found")
 
-#tn.write(b"show vlan" + b"\n")
-#output = tn.read_until(b"#", 5)
-#print(output)
-
 tn.write(b"configure terminal" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
 
-tn.write(b"vlan 222" + b"\n")
+tn.write(b"hostname residence-sw" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
 
-tn.write(b"end" + b"\n")
+tn.write(b"vlan 20" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
 
-tn.write(b"show vlan" + b"\n")
+tn.write(b"exit" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
+tn.write(b"spanning-tree vlan 20 root primary" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
+tn.write(b"int e1/0" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
+tn.write(b"switchport mode access" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
+tn.write(b"switchport access vlan 20" + b"\n")
+output = tn.read_until(b"#", 5)
+print(output)
+
+tn.write(b"sh run" + b"\n")
 output = tn.read_until(b"#", 5)
 print(output)
 
