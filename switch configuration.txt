@@ -3,12 +3,11 @@ interface Vlan1
 ip address 192.168.1.254 255.255.255.0
 exit
 
-username cisco password not4all
+username cisco password cisco
 enable password cisco
 
 line vty 0 4
-password telnetpassword
-login local
+password cisco
 end
 wr
 
